@@ -1,0 +1,131 @@
+{
+    "max_attempts": 1,
+    "time_per_word": 0,
+    "initial_state": "general",
+    "states": [
+      {
+        "state": "general",           
+        "model": "shallow_model",           
+        "type": "normal",	    
+        "entities": [],                                                         
+        "reset_entities": true,   
+        "evaluate_ner": true,
+        "options": {}},
+      {
+        "state": "asignacion",        
+        "model": "empty_model",             
+        "type": "normal",	    
+        "entities": ["ESPECIALIDAD", "IDENTIFICACION", "FECHA", "MES"],         
+        "reset_entities": false,
+        "evaluate_ner": true,  
+        "options": {}
+      },
+      {
+        "state": "confirmacion",      
+        "model": "empty_model",             
+        "type": "normal",	    
+        "entities": ["ESPECIALIDAD"],                                           
+        "reset_entities": false,
+        "evaluate_ner": true,  
+        "options": {}
+      },
+      {
+        "state": "cancelacion",       
+        "model": "empty_model",             
+        "type": "normal",	    
+        "entities": ["ESPECIALIDAD"],                                           
+        "reset_entities": false,
+        "evaluate_ner": true,  
+        "options": {}},
+      {
+        "state": "despedida",         
+        "model": "empty_model",             
+        "type": "normal",	    
+        "entities": [],                                                         
+        "reset_entities": false,
+        "evaluate_ner": true,  
+        "options": {}
+      },
+      {
+        "state": "continuacion",      
+        "model": "empty_model",             
+        "type": "reset_topic",	
+        "entities": [],                                                         
+        "reset_entities": false,
+        "evaluate_ner": true,  
+        "options": {}
+      }
+    ],
+    "transitions": [
+    	{
+        "label": "asignacion",   
+        "starting_state": "general",      
+        "ending_state": "asignacion",      
+        "is_forced": true,    
+        "cyclic": false
+      },
+      {
+        "label": "confirmacion", 
+        "starting_state": "general",      
+        "ending_state": "confirmacion",    
+        "is_forced": true,    
+        "cyclic": false
+      },      
+      {
+        "label": "cancelacion",  
+        "starting_state": "general",      
+        "ending_state": "cancelacion",     
+        "is_forced": true,    
+        "cyclic": false
+      },
+      {
+        "label": "asignacion",   
+        "starting_state": "asignacion",   
+        "ending_state": "despedida",       
+        "is_forced": false,   
+        "cyclic": false
+      },
+      {
+        "label": "confirmacion", 
+        "starting_state": "confirmacion", 
+        "ending_state": "despedida",       
+        "is_forced": false,   
+        "cyclic": false
+      },
+      {
+        "label": "cancelacion",  
+        "starting_state": "cancelacion",  
+        "ending_state": "despedida",       
+        "is_forced": false,   
+        "cyclic": false
+      },
+      {
+        "label": "",             
+        "starting_state": "despedida",    
+        "ending_state": "continuacion",    
+        "is_forced": true,    
+        "cyclic": false
+      },
+      {
+        "label": "",             
+        "starting_state": "continuacion", 
+        "ending_state": "general",         
+        "is_forced": true,    
+        "cyclic": false
+      }
+    ],
+    "topics": {
+      "reset_topic" : []
+    },
+    "templates": [
+      {"template_id": "ESPECIALIZACION",                "label": "ESPECIALIDAD",       "topic": ["asignacion"]},
+      {"template_id": "ESPECIALIZACION",                "label": "ESPECIALIDAD",       "topic": ["confirmacion"]},
+      {"template_id": "ESPECIALIZACION",                "label": "ESPECIALIDAD",       "topic": ["cancelacion"]},
+      {"template_id": "FECHA",                          "label": "FECHA",              "topic": ["asignacion"]},
+      {"template_id": "MES",                            "label": "MES",                "topic": ["asignacion"]},
+      {"template_id": "IDENTIFICACION",                 "label": "IDENTIFICACION",     "topic": ["asignacion"]},
+      {"template_id": "asignacion",                     "label": "asignacion",         "topic": ["asignacion", "asignacion"]},
+      {"template_id": "confirmacion",                   "label": "confirmacion",       "topic": ["confirmacion", "confirmacion"]},
+    	{"template_id": "cancelacion",                    "label": "cancelacion",        "topic": ["cancelacion", "cancelacion"]}
+    ]
+}

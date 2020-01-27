@@ -1,0 +1,32 @@
+// POS Diagram
+digraph {
+	root [label="sacar
+Verbo" fillcolor="#78add2" style=filled]
+	sacarHola [label="Hola
+Verbo" fillcolor="#ffffff" style=filled]
+	root -> sacarHola [label=nsubj color=blue]
+	Holatardes [label="tardes
+Sustantivo" fillcolor="#ffffff" style=filled]
+	sacarHola -> Holatardes [label=obj color=blue]
+	tardesbuenas [label="buenas
+Adjetivo" fillcolor="#ffffff" style=filled]
+	Holatardes -> tardesbuenas [label=amod color=blue]
+	tardesqueria [label="queria
+Adjetivo" fillcolor="#f9fcfd" style=filled]
+	Holatardes -> tardesqueria [label=amod color=blue]
+	sacarcita [label="cita
+Sustantivo" fillcolor="#ffffff" style=filled]
+	root -> sacarcita [label=obj color=blue]
+	citauna [label="una
+Determinante" fillcolor="#ffffff" style=filled]
+	sacarcita -> citauna [label=det color=blue]
+	citaMedicina [label="Medicina
+Sustantivo Propio" fillcolor="#ffffff" style=filled]
+	sacarcita -> citaMedicina [label=nmod color=blue]
+	Medicinade [label="de
+Preposición" fillcolor="#ffffff" style=filled]
+	citaMedicina -> Medicinade [label=case color=blue]
+	Medicinageneral [label="general
+Adjetivo" fillcolor="#ffffff" style=filled]
+	citaMedicina -> Medicinageneral [label=amod color=blue]
+}

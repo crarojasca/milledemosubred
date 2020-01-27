@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ACME VoiceBot</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/structure.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static',filename='js/openseadragon.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/structure.js') }}"></script>
+  </head>
+  <body>
+
+    <div class="col col-xs-6 textsquare">
+
+      <div class="row agentetittle-container" >
+        <div class="col-xs-12 textsquare">
+          <div class="corners text-center agentetittle">
+            Análisis de Agente Virtual de AI
+          </div>
+          <div class="blocklogo"></div>
+        </div>
+      </div>
+        
+  
+      <div class="row tree-container">
+        <div class="col-xs-12 square" style="height:100%;">
+          <div class="rcorners text-center squaretext" style="height:100%;">
+            <div class="blocktittle">
+              Árbol de Desintegración Gramatical
+            </div>
+            <div id="graph" style="width: 100%; height: 100%;"></div>
+          </div>
+          </div>  
+      </div>      
+      
+      <div class="row prediction-container">
+        <div class="col-xs-12 square">
+          <div class="rcorners squaretext">
+            <div class="blocktittle">
+              Predicción
+            </div>
+            <div id="predictions" class="bars-container"></div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+
+
+    <div class="col col-xs-6 square">
+
+      <div class="row chat-container style-scrollbar" id="chat-scrollable">      
+        <div id="chat" class="col-xs-12 textsquare"></div>
+      </div>
+  
+      <div class="row tables-container">      
+
+        <div class="col-xs-12" style="height:100%;">
+
+          <div class="row" style="height:60%;">
+            <div class="col-xs-12 square" style="height:100%;">
+              <div class="tablediv" style="height:100%;">
+                <div style="height: 15%;">
+                    <h3 style="margin: 0%; font-size: 2.5vmin;">Tabla de Descriptores</h3>
+                </div>        
+                <table cellspacing="0" cellpadding="0" border="0" width="100%" height="85%">
+                    <tr style="height:10%;">
+                      <td style="height:10%;">
+                        <table cellspacing="0" cellpadding="1" border="1" width="100%">
+                          <tr style="color:white;background-color:grey;height:10%;">
+                              <th class="text-center" style="width: 50%;">Descriptor</th>
+                              <th class="text-center" style="width: 50%;">Texto</th>                              
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr style="height:90%;">
+                      <td style="height:100%; vertical-align: text-top;">
+                        <div class="style-scrollbar" style="height:100%; overflow:auto;">
+                          <table id="entities" cellspacing="0" cellpadding="1" border="1" width="100%" >
+                            <tr class="eventhover">
+                              <td style="width: 50%;">&nbsp</td>
+                              <td style="width: 50%;">&nbsp</td>
+                            </tr>
+                            <tr class="eventhover">
+                              <td style="width: 50%;">&nbsp</td>
+                              <td style="width: 50%;">&nbsp</td>
+                            </tr>
+                            <tr class="eventhover">
+                              <td style="width: 50%;">&nbsp</td>
+                              <td style="width: 50%;">&nbsp</td>
+                            </tr>
+                          </table>  
+                        </div>
+                      </td>
+                    </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="height:40%;">
+            <div class="col-xs-12 square">
+              <div class="tablediv">
+                <div style="height: 15%;">
+                    <h3 style="margin: 0%; font-size: 2.5vmin;">Tabla de Objetos</h3>
+                </div>                
+                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                  <tr>
+                    <td>
+                      <table cellspacing="0" cellpadding="1" border="1" width="100%" >
+                        <tr style="color:white;background-color:grey">
+                            <th class="text-center" style="width: 25%;">Texto</th>
+                            <th class="text-center" style="width: 25%;">Texto Raiz</th>
+                            <th class="text-center" style="width: 25%;">Dependencia Raiz</th>
+                            <th class="text-center" style="width: 25%;">Cabeza de al Raiz</th>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="style-scrollbar" style="height:80px; overflow:auto;">
+                        <table id="objects" cellspacing="0" cellpadding="1" border="1" width="100%" >
+                          <tr class="eventhover">
+                            <td style="width: 25%;">&nbsp</td>
+                            <td style="width: 25%;">&nbsp</td>
+                            <td style="width: 25%;">&nbsp</td>
+                            <td style="width: 25%;">&nbsp</td>
+                          </tr>
+                          <tr class="eventhover">
+                              <td style="width: 25%;">&nbsp</td>
+                              <td style="width: 25%;">&nbsp</td>
+                              <td style="width: 25%;">&nbsp</td>
+                              <td style="width: 25%;">&nbsp</td>
+                          </tr>
+                          <tr class="eventhover">
+                            <td style="width: 25%;">&nbsp</td>
+                            <td style="width: 25%;">&nbsp</td>
+                            <td style="width: 25%;">&nbsp</td>
+                            <td style="width: 25%;">&nbsp</td>
+                          </tr>
+                        </table>  
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+        
+    </div>
+
+    
+
+
+    <div class="col-xs-12 footerSpace"></div>
+
+    <div id="footer">
+      Powered by Millenium BPO 2019
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,90 @@
+{
+  "TIPO_DOCUMENTO": {
+    "message": [
+      "Tu documento corresponde a una cedula, tarjeta de identidad o cedula de extranjeria"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "IDENTIFICACION": {
+    "message": [
+      "Puedes indicarme tu numero de identificación?"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "asignacion": {
+    "message": [
+      "Tu cita de [Entity][ESPECIALIDAD] ha sido asignada exitosamente para el dia [Entity][FECHA] del mes [Entity][MES]."
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "confirmacion": {
+    "message": [
+      "Tienes una cita de [Entity][ESPECIALIDAD] para el viernes 6 de de Diciembre a las 4:30pm"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "cancelacion": {
+    "message": [
+      "Tu cita de [Entity][ESPECIALIDAD] ha sido cancelada, si quieres agendar otra cita por favor vuelve a comunicarte."
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "ESPECIALIZACION": {
+    "message": [
+      "Puedes indicarme la especialidad?"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "FECHA": {
+    "message": [
+      "Para que dia?"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "MES": {
+    "message": [
+      "Para que mes quieres tu cita?"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "agente": {
+    "message": [
+      "No comprendo tu petición en un momento te atendera un agente especializado, espera en linea mientras eres tranferido."
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "esperar_agente": {
+    "message": [
+      "Nuestros asesores se encuentran ocupados en el momento, espera en linea para ser atendido."
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "despedida": {
+    "message": [
+      "despedida"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  }
+}

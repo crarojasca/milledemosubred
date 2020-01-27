@@ -1,0 +1,90 @@
+{
+  "TIPO_DOCUMENTO": {
+    "message": [
+      "Tipo_documento"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "IDENTIFICACION": {
+    "message": [
+      "Identificacion"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "asignacion": {
+    "message": [
+      "Asignacion"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "confirmacion": {
+    "message": [
+      "Confirmacion"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "cancelacion": {
+    "message": [
+      "Cancelacion"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "ESPECIALIZACION": {
+    "message": [
+      "Especialidad"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "FECHA": {
+    "message": [
+      "Fecha"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "MES": {
+    "message": [
+      "Mes"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "agente": {
+    "message": [
+      "agente"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  },
+  "esperar_agente": {
+      "message": [
+        "esperar_agente"
+      ],
+      "saveData": false,
+      "valueField": "",
+      "crmCommand": ""
+  },
+  "despedida": {
+    "message": [
+      "despedida"
+    ],
+    "saveData": false,
+    "valueField": "",
+    "crmCommand": ""
+  }
+}
