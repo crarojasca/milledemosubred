@@ -66,7 +66,7 @@ def test_model():
     return Response(json.dumps(response), mimetype='application/json')
 
 
-@app.route('/nlu-voicebot_demo_subred', methods=['GET', 'POST'])
+@app.route(sys.argv[3], methods=['GET', 'POST'])
 def dialog():
     global ner
     global state_machine
@@ -220,5 +220,5 @@ if __name__ == '__main__':
     with app.app_context():
         db.drop_all()
         db.create_all()
-    socketio.run(app, host = '192.168.222.63', port = 8004)
+    socketio.run(app, host = sys.argv[1], port = sys.argv[2])
     # app.run(host = '192.168.222.63', port = 8004)
