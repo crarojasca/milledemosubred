@@ -220,5 +220,5 @@ if __name__ == '__main__':
     with app.app_context():
         db.drop_all()
         db.create_all()
-    socketio.run(app, host = sys.argv[1], port = sys.argv[2])
+    socketio.run(app, host = sys.argv[1], port = sys.argv[2], debug=False)
     # app.run(host = '192.168.222.63', port = 8004)
